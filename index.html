@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <div class="toggle-circle"></div>
+        </button>
+    </div>
+    <div class="container">
+        <header class="app-header">
+            <h1><i class="fas fa-tasks"></i> Sistema de Tarefas</h1>
+        </header>
+
+        <div class="form-container">
+            <form id="tarefaForm" class="task-form">
+                <div class="form-group">
+                    <label for="nome">
+                        <i class="fas fa-pencil-alt"></i> Nome da Tarefa
+                    </label>
+                    <input type="text" id="nome" required placeholder="Digite o nome da tarefa">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="custo">
+                            <i class="fas fa-coins"></i> Custo
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="currency-symbol">R$</span>
+                            <input type="number" id="custo" required min="0" step="0.01" placeholder="0,00">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data_limite">
+                            <i class="fas fa-calendar-alt"></i> Data Limite
+                        </label>
+                        <input type="date" id="data_limite" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i> Adicionar Tarefa
+                </button>
+            </form>
+        </div>
+
+        <div class="tasks-container">
+            <h2><i class="fas fa-list"></i> Tarefas</h2>
+            <div id="tarefas" class="tasks-list"></div>
+        </div>
+    </div>
+
+    <div id="confirmacaoModal" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-exclamation-triangle"></i> Confirmar Exclusão</h2>
+            <p>Tem certeza que deseja excluir esta tarefa?</p>
+            <p class="task-to-delete"></p>
+            <div class="modal-buttons">
+                <button id="cancelarExclusao" class="btn-secondary">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button id="confirmarExclusao" class="btn-danger">
+                    <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
